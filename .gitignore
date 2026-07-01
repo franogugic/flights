@@ -1,0 +1,20 @@
+bin/
+obj/
+*.user
+
+# OS / IDE
+.DS_Store
+.idea/
+
+# Orchestrator's own SQLite state (local, not shared) — migrations themselves are still tracked
+.orchestrator/*.db
+.orchestrator/*.db-shm
+.orchestrator/*.db-wal
+
+# React app
+web/orchestrator-ui/node_modules/
+web/orchestrator-ui/dist/
+
+# API keys / local secrets
+.env
+appsettings.*.local.json
