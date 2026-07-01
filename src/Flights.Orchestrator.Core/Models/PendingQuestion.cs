@@ -36,6 +36,7 @@ public class PendingQuestion
     /// <summary>Set once the resume pass has acted on the answer, so it isn't reprocessed on the next run.</summary>
     public bool Consumed { get; set; }
 
-    public DateTimeOffset CreatedAt { get; set; }
-    public DateTimeOffset? AnsweredAt { get; set; }
+    /// <summary>UTC. Plain DateTime — see the comment on BacklogTask.CreatedAt for why.</summary>
+    public DateTime CreatedAt { get; set; }
+    public DateTime? AnsweredAt { get; set; }
 }

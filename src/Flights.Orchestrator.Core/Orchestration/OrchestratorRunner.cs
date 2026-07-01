@@ -110,7 +110,7 @@ public class OrchestratorRunner(
                 {
                     task.IterationCount = 0;
                     task.Status = BacklogTaskStatus.Pending;
-                    task.UpdatedAt = DateTimeOffset.UtcNow;
+                    task.UpdatedAt = DateTime.UtcNow;
                 }
             }
 
@@ -131,13 +131,13 @@ public class OrchestratorRunner(
                 Id = Guid.NewGuid().ToString(),
                 Source = PendingQuestionSource.Architect,
                 QuestionText = result.NeedsInputQuestion!,
-                CreatedAt = DateTimeOffset.UtcNow,
+                CreatedAt = DateTime.UtcNow,
             });
             await db.SaveChangesAsync(cancellationToken);
             return new RunResult(RunOutcome.NeedsInput, $"Architect needs input: {result.NeedsInputQuestion}");
         }
 
-        var now = DateTimeOffset.UtcNow;
+        var now = DateTime.UtcNow;
         foreach (var t in result.Tasks)
         {
             db.BacklogTasks.Add(new BacklogTask
@@ -187,7 +187,7 @@ public class OrchestratorRunner(
             if (iterationNumber > MaxIterationsPerTask)
             {
                 task.Status = BacklogTaskStatus.Blocked;
-                task.UpdatedAt = DateTimeOffset.UtcNow;
+                task.UpdatedAt = DateTime.UtcNow;
 
                 db.PendingQuestions.Add(new PendingQuestion
                 {
@@ -196,7 +196,7 @@ public class OrchestratorRunner(
                     Source = PendingQuestionSource.BlockedTaskEscalation,
                     QuestionText = $"Task {task.Id} failed review {MaxIterationsPerTask} times. " +
                                    $"Last findings: {task.LastReviewerVerdictJson}. How should I proceed?",
-                    CreatedAt = DateTimeOffset.UtcNow,
+                    CreatedAt = DateTime.UtcNow,
                 });
 
                 await db.SaveChangesAsync(cancellationToken);
@@ -218,13 +218,13 @@ public class OrchestratorRunner(
                 IterationNumber = iterationNumber,
                 DeveloperSummaryJson = developerSummaryJson,
                 ReviewerVerdictJson = reviewerVerdictJson,
-                CreatedAt = DateTimeOffset.UtcNow,
+                CreatedAt = DateTime.UtcNow,
             });
 
             task.IterationCount = iterationNumber;
             task.LastDeveloperSummaryJson = developerSummaryJson;
             task.LastReviewerVerdictJson = reviewerVerdictJson;
-            task.UpdatedAt = DateTimeOffset.UtcNow;
+            task.UpdatedAt = DateTime.UtcNow;
 
             if (reviewerResult.Verdict == ReviewerVerdict.Approve)
             {

@@ -34,6 +34,8 @@ public class BacklogTask
     public string? LastDeveloperSummaryJson { get; set; }
     public string? LastReviewerVerdictJson { get; set; }
 
-    public DateTimeOffset CreatedAt { get; set; }
-    public DateTimeOffset UpdatedAt { get; set; }
+    /// <summary>UTC. Plain DateTime (not DateTimeOffset) because EF Core's SQLite provider cannot
+    /// translate ORDER BY on DateTimeOffset columns, even with a value converter.</summary>
+    public DateTime CreatedAt { get; set; }
+    public DateTime UpdatedAt { get; set; }
 }

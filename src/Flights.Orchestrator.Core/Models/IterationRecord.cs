@@ -12,5 +12,6 @@ public class IterationRecord
     public string DeveloperSummaryJson { get; set; } = default!;
     public string? ReviewerVerdictJson { get; set; }
 
-    public DateTimeOffset CreatedAt { get; set; }
+    /// <summary>UTC. Plain DateTime — see the comment on BacklogTask.CreatedAt for why.</summary>
+    public DateTime CreatedAt { get; set; }
 }
