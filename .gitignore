@@ -18,3 +18,4 @@ web/orchestrator-ui/dist/
 # API keys / local secrets
 .env
 appsettings.*.local.json
+.claude/settings.local.json

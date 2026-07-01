@@ -1,0 +1,176 @@
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-family: system-ui, sans-serif;
+}
+
+.app__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.app__header h1 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.app__tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.app__tabs button {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+.app__tabs button.active {
+  background: #333;
+  color: white;
+  border-color: #333;
+}
+
+.error-banner {
+  color: #b00020;
+  background: #fde8e8;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+}
+
+.empty-state {
+  color: #666;
+  font-style: italic;
+}
+
+.question-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.question-row {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem;
+}
+
+.question-row__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.question-row__task-id {
+  font-family: monospace;
+}
+
+.question-row__date {
+  margin-left: auto;
+}
+
+.question-row__text {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.question-row__answer {
+  margin: 0.4rem 0 0;
+  color: #2a6b2a;
+}
+
+.question-row__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.question-row__form textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 0.5rem;
+  resize: vertical;
+}
+
+.question-row__form-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.question-row__error {
+  color: #b00020;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge--architect {
+  background: #e0ecff;
+  color: #1a4faa;
+}
+
+.badge--blocked {
+  background: #ffe8cc;
+  color: #a05a00;
+}
+
+.badge--status-pending {
+  background: #eee;
+  color: #555;
+}
+
+.badge--status-inprogress {
+  background: #fff3cd;
+  color: #8a6400;
+}
+
+.badge--status-blocked {
+  background: #ffdada;
+  color: #a10000;
+}
+
+.badge--status-needsinput {
+  background: #ffe8cc;
+  color: #a05a00;
+}
+
+.badge--status-done {
+  background: #d8f5d8;
+  color: #1a6b1a;
+}
+
+.backlog-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.backlog-table th,
+.backlog-table td {
+  text-align: left;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+.questions-panel section + section {
+  margin-top: 1.5rem;
+}
