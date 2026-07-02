@@ -27,9 +27,6 @@ public class PendingQuestion
     public PendingQuestionSource Source { get; set; }
     public string QuestionText { get; set; } = default!;
 
-    /// <summary>Optional extra context (e.g. reviewer findings) serialized as JSON, shown to the human answering.</summary>
-    public string? ContextJson { get; set; }
-
     public PendingQuestionStatus Status { get; set; } = PendingQuestionStatus.Open;
     public string? AnswerText { get; set; }
 

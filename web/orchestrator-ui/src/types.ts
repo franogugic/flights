@@ -4,7 +4,6 @@ export interface PendingQuestion {
   backlogTaskId: string | null;
   source: 'Architect' | 'BlockedTaskEscalation';
   questionText: string;
-  contextJson: string | null;
   status: 'Open' | 'Answered';
   answerText: string | null;
   createdAt: string;
